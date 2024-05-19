@@ -49,6 +49,8 @@ if __name__ == '__main__':
                     "**/*.wcfg" : True,
                     "**/*.wdb" : True,
                     "**/.Xil" : True,
+                    "**/xcrg.log" : True,
+                    "**/simulate_batch.tcl" : True
                     }
             },
             fpo, indent=True)
