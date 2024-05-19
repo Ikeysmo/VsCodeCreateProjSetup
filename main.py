@@ -4,7 +4,13 @@ import os
 import json
 import subprocess
 
-Base = '/home/kenzie/VerilogProjects'
+if os.name == 'posix':
+    BASE = os.path.expandvars('$HOME')
+else:
+    BASE = 'C:\\Projects' #windows
+
+
+Base = os.path.join(BASE, 'VerilogProjects')
 
 
 # Press the green button in the gutter to run the script.
