@@ -51,7 +51,17 @@ def createFullOnTaskJson():
                        args=["work.top", "-gui", "--tclbatch", "simulate_batch.tcl"],
                    clear = False, dependsOn="Elaborate")
     )
+    base['tasks'].append(
+        add_build_task(base, "Generate Coverage", command="xcrg",
+            args=[ "-dir", ".", "-report_dir", "./coverage_report", "-report_format", "html" ],
+            clear = False)
+    )
 
+    base['tasks'].append(
+        add_build_task(base, "Show Coverage", command="firefox",
+                       args=["coverage_report/dashboard.html"],
+                   clear = False, dependsOn="Generate Coverage")
+    )
     return base
 
 
